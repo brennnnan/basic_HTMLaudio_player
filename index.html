@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>mp3 player example</title>
+  </head>
+  <body>
+    <img id="playerState" src="./assets/img/play.png" onclick="changePlayerState()">
+
+  	<script>
+			var playStateImage = document.getElementById("playerState")
+			var audio = document.createElement('audio');
+			var playbackProgress = 0;
+			
+			///////////  All Show URLs   ////////////////
+			/////////////////////////////////////////////
+			// Zappa: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/19_06_16_Composer_to_Composer.mp3
+			// Subotnick: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/19_06_02_carl_stone.mp3
+			// Steve Reich: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/19_05_19_carl_stone_reich.mp3
+			// Chen YI: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/19_05_06_imaginary_landscape.mp3
+			// Harold Budd: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/carl_stone_04_21_19_harold_budd.mp3
+			// Alvin Curran: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/carl_stone_04_07_19.mp3
+			// Terry Riley: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/carl_stone_terry_riley.mp3
+			// Brian Eno: http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/brian_eno_03_03_19.mp3
+			
+			
+			// audio.src = "http://dublab-audio-archives.s3.amazonaws.com/audio/podcast/19_06_16_Composer_to_Composer.mp3"
+			audio.src = "./assets/audio/small-plate.mp3"
+			
+		
+		function changePlayerState() {
+			if (audio.played.length == [] || audio.paused) {
+				audio.play();
+				playStateImage.src = "./assets/img/pause.png"
+			} else {
+				audio.pause();
+				playStateImage.src="./assets/img/play.png"
+			}
+		}
+			
+		audio.ontimeupdate = (event) => {
+			playbackProgress = (audio.currentTime / audio.duration);
+			
+			// You can use this value here to show progress on a progressbar
+			// It is between 0 and 1
+			// **apparently the progress html element sucks to style, the dublab website uses a css border I think
+			// here is an example that uses a canvas 
+			// https://codepen.io/thomasmarren/pen/VPbdEo
+			
+			console.log(playbackProgress)
+		} 
+		
+		audio.onended = (event) => {
+			playStateImage.src = "./assets/img/play.png"
+		}
+	</script>
+	</body>
+</html>
+
