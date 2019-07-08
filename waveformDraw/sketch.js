@@ -25,6 +25,8 @@ function draw() {
   line(0,300,2,300+(pointArray[100]/100));
   for(var i=100; i<1000; i++) {
     // draw a bunch more lines, each connecting to the previous point
+    // dividing by 100 is just to scale the numbers into a smaller range 
+    
     line(lastx, 300+(pointArray[i]/100), lastx+2, 300+(pointArray[i+1]/100));
     lastx+=2
   }
