@@ -1,0 +1,71 @@
+# netlify.toml 
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/salon"
+  to = "https://projects.dublab.com/salon/"
+
+[[redirects]]
+  from = "/store"
+  to = "https://shop.dublab.com"
+
+[[redirects]]
+  from = "/shop"
+  to = "https://shop.dublab.com
+	
+[[redirects]]
+	from = "/anniversary"
+	to = "https://www.dublab.com/events/78254/dublab-20th-anniversary-party"
+
+[[redirects]]
+  from = "/spotify"
+  to = "https://open.spotify.com/user/rld4lfxg9tpyor0mxiki62b23"
+
+# dublab app redirects
+
+[[redirects]]
+  from = "/streams/dubstream"
+  to = "http://dublab.out.airtime.pro:8000/dublab_a"
+
+[[redirects]]
+  from = "/app-bg-image"
+  to = "https://dublab-api-1.s3.amazonaws.com/uploads/2017/05/dubal-app-background-2.jpg"
+
+[[redirects]]
+  from = "/nowplaying.json"
+  to = "https://api-1.dublab.com/endpoints/dublab-app/nowplaying.json"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/json_endpoints.json"
+  to = "https://api-1.dublab.com/endpoints/dublab-app/json_endpoints.json"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/events.json"
+  to = "https://api-1.dublab.com/endpoints/dublab-app/events.json"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/json_endpoints/weekly_schedule.json"
+  to = "https://api-1.dublab.com/endpoints/dublab-app/weekly_schedule.json"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/wp-content/uploads/*"
+  to = "https://dublab-api-1.s3.amazonaws.com/uploads/:splat"
+  status = 200
+
+# dublab spa redirect
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
